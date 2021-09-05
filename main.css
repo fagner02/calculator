@@ -1,0 +1,80 @@
+*{
+  font-family: Roboto;
+  color: white;
+}
+
+
+.caixa{
+    background: hsl(0, 0%, 20%);
+    width: 280px;
+    height: 420px;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 20px hsl(0 0% 0% / 0.5);
+
+
+}
+.text{
+  text-align: center;
+  width: 10px;
+}
+.selector{
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 15px;
+  background: white;
+}
+.scaff{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#backspace{
+    filter: invert(100%);
+    width: 1.5rem;
+
+}
+
+.visor{
+    background: hsl(0, 0%, 20%);
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.celula{
+    border: 1px solid hsl(0, 0%, 40%);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /*color: transparent;
+    background-image: linear-gradient(to right bottom, hsl(0, 50%, 50%), hsl(15, 50%, 50%), hsl(45, 50%, 50%), 
+    hsl(90, 50%, 50%), hsl(180, 50%, 50%), hsl(250, 50%, 50%));
+    background-clip: text;
+    background-repeat: no-repeat;*/
+    
+}
+
+
+.celulas{
+    width: 212px;
+    height: 212px;
+
+    display: grid;
+    gap: 1px 1px;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(5, 70px); 
+    
+}
