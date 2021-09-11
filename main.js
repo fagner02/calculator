@@ -171,11 +171,13 @@ function specialOperator(text){
     /*alert("str1:"+str1+", str2:"+str2+
       ", str3:"+str3);*/
     sNum = resolveRes(parseFloat(str1),
-     parseFloat(str2), sOp);
-    if(sOp == "/" &&
-    str2.charAt(str2.length-1) == "0"){
+      parseFloat(str2), sOp);
+
+    if(sOp == "/" && (str2 == "+0" || 
+    str2 == "-0" || str2 == "0")){
       sNum = 0;
     };
+
     s = (sNum<0)? "" : "+";
     
     text = text.replace(str3, s+sNum);
