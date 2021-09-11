@@ -1,5 +1,6 @@
 window.onload = () => {
   console.log("entered");
+  selectSpan($(".first")[0]);
 }
 var vText = $(".visor");
 var selector = $(".selector");
@@ -35,8 +36,13 @@ function operate(input){
        span.getBoundingClientRect().right
     showSelector(pos);
     hideSelector();
-  }else{
-    var obj = $("#"+spans[selectedId+1].id);
+  }else {
+    var obj;
+    if(selectedId == -1){
+      obj = $("#"+spans[0].id);
+    }else{
+      obj = $("#"+spans[selectedId+1].id);
+    }
     obj.before(span);
     var pos =
        span.getBoundingClientRect().right
@@ -54,7 +60,10 @@ function operate(input){
 function selectSpan(span){
   span.onclick = () => {
     var obj = $("#"+span.id)[0];
-    selectedId = $("#"+obj.id).index()-1;
+    selectedId = $("#"+obj.id).index()-2;
+    if(obj.id == "s-1"){
+      selectedId = -1
+    }
     last = $("#"+obj.id).text();
     setOperator(last);
     var pos = 
@@ -269,18 +278,28 @@ function setOperator(input){
 }
 function deleteSpan(){
   var spans = $(".text");
-  if(spans.length<1){return;}
+  if(spans.length<1 || selectedId<0){return;}
   $("#"+spans[selectedId].id).remove();
   selectedId--;
   if(spans.length<1){
     last = null;
+    op = null;
     selector.css({
       visibility: "hidden"
     });
     return;
   }
   
-  var obj = $(spans[selectedId].id)[0];
+  if(selectedId < 0){
+    op = null;
+    last = null;
+    var obj = $(".first")[0];
+    pos = obj.getBoundingClientRect().right
+    showSelector(pos);
+    hideSelector();
+    return;
+  }
+  var obj = $("#"+spans[selectedId].id)[0];
   last = $("#"+obj.id).text();
   setOperator(last);
   
