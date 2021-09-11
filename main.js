@@ -154,12 +154,12 @@ function specialOperator(text){
     var min = text.length;
     
     for(var i=0;i<4;i++){
+      var minTemp = text.indexOf(ops[i], index+1);
       if(text.lastIndexOf(ops[i], index-1)>max){
         max = text.lastIndexOf(ops[i], index-1);
       }
-      if(text.includes(ops[i]) && 
-      text.indexOf(ops[i], index+1)>-1 &&
-      text.indexOf(ops[i], index+1)<min){
+      if(minTemp > -1 && minTemp < min &&
+      minTemp > index+1){
         min = text.indexOf(ops[i], index+1);
       }
     }
