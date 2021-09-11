@@ -167,8 +167,8 @@ function specialOperator(text){
     var str1 = text.substring(max, index);
     var str2 = text.substring(index+1, min);
     var str3 = text.substring(max, min);
-    alert("str1:"+str1+", str2:"+str2+
-      ", str3:"+str3);
+    /*alert("str1:"+str1+", str2:"+str2+
+      ", str3:"+str3);*/
     sNum = resolveRes(parseFloat(str1),
      parseFloat(str2), sOp);
     s = (sNum<0)? "" : "+";
