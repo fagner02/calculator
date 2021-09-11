@@ -155,7 +155,7 @@ function specialOperator(text){
     
     for(var i=0;i<4;i++){
       if(text.lastIndexOf(ops[i], index-1)>max){
-        max = text.indexOf(ops[i]);
+        max = text.lastIndexOf(ops[i], index-1);
       }
       if(text.includes(ops[i]) && 
       text.indexOf(ops[i], index+1)>-1 &&
