@@ -26,7 +26,7 @@ function operate(input){
   (last == "(" || last == ")")){
     return;
   }
-  if(input == "." && dotInserted){
+  if(input == "."){
     if(dotInserted){
       return;
     } else {
