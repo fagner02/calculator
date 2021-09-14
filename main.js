@@ -12,6 +12,7 @@ var last;
 var nums = [];
 var nId = 0;
 var op = null;
+var dotInserted = false;
 
 function operate(input){
   if((input == "+" || input == "-") && 
@@ -24,6 +25,13 @@ function operate(input){
   if((input == "(" || input == ")") && 
   (last == "(" || last == ")")){
     return;
+  }
+  if(input == "." && dotInserted){
+    if(dotInserted){
+      return;
+    } else {
+      dotInserted = true;
+    }
   }
   var span = document.createElement("span");
   span.setAttribute("id", "s"+nId);
@@ -277,6 +285,9 @@ function hideSelector(){
   }, 1000);
 }
 function setOperator(input){
+  if(ops.indexOf(input)>-1){
+    dotInserted = false;
+  }
   if(ops.indexOf(input)<0 || 
   input == "(" || input == ")"){
     input = null;
@@ -291,6 +302,7 @@ function deleteSpan(){
   if(spans.length<1){
     last = null;
     op = null;
+    insertedDot = false;
     selector.css({
       visibility: "hidden"
     });
@@ -300,6 +312,7 @@ function deleteSpan(){
   if(selectedId < 0){
     op = null;
     last = null;
+    insertedDot = false;
     var obj = $(".first")[0];
     pos = obj.getBoundingClientRect().right
     showSelector(pos);
@@ -318,6 +331,7 @@ function deleteSpan(){
 function clearText(){
   op = null;
   last = null;
+  insertedDot = false;
   var spans = $(".text");
   spans.remove();
   selector.css({
@@ -341,6 +355,7 @@ function setText(n){
     nId++;
   }
   op = null;
+  insertedDot = false;
   last = n.charAt(n.length-1);
   selectedId = n.length-1;
 }
