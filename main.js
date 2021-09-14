@@ -302,7 +302,7 @@ function deleteSpan(){
   if(spans.length<1){
     last = null;
     op = null;
-    insertedDot = false;
+    dotInserted = false;
     selector.css({
       visibility: "hidden"
     });
@@ -312,7 +312,7 @@ function deleteSpan(){
   if(selectedId < 0){
     op = null;
     last = null;
-    insertedDot = false;
+    dotInserted = false;
     var obj = $(".first")[0];
     pos = obj.getBoundingClientRect().right
     showSelector(pos);
@@ -331,7 +331,7 @@ function deleteSpan(){
 function clearText(){
   op = null;
   last = null;
-  insertedDot = false;
+  dotInserted = false;
   var spans = $(".text");
   spans.remove();
   selector.css({
@@ -355,7 +355,7 @@ function setText(n){
     nId++;
   }
   op = null;
-  insertedDot = false;
+  dotInserted = false;
   last = n.charAt(n.length-1);
   selectedId = n.length-1;
 }
