@@ -13,7 +13,7 @@ var nums = [];
 var nId = 0;
 var op = null;
 var dotInserted = false;
-var invalidTimer;
+var invalidTimer = null;
 function operate(input){
   if((input == "+" || input == "-") && 
   (op && (op == "+" || op == "-"))){
@@ -36,6 +36,7 @@ function operate(input){
   if(invalidTimer){
     clearText()
     clearTimeout(invalidTimer)
+    invalidTimer = null;
   }
   var span = document.createElement("span");
   span.setAttribute("id", "s"+nId);
@@ -307,6 +308,7 @@ function deleteSpan(){
   if(invalidTimer){
     clearTimeout(invalidTimer)
     clearText()
+    invalidTimer = null;
     return
   }
   var spans = $(".text");
@@ -343,6 +345,10 @@ function deleteSpan(){
   
 }
 function clearText(){
+  if(invalidTimer){
+    clearTimeout(invalidTimer)
+    invalidTimer = null;
+  }
   op = null;
   last = null;
   dotInserted = false;
