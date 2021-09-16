@@ -13,7 +13,7 @@ var nums = [];
 var nId = 0;
 var op = null;
 var dotInserted = false;
-
+var invalidTimer;
 function operate(input){
   if((input == "+" || input == "-") && 
   (op && (op == "+" || op == "-"))){
@@ -32,6 +32,10 @@ function operate(input){
     } else {
       dotInserted = true;
     }
+  }
+  if(invalidTimer){
+    clearText()
+    clearTimeout(invalidTimer)
   }
   var span = document.createElement("span");
   span.setAttribute("id", "s"+nId);
@@ -144,6 +148,11 @@ function setRes(set=true, text){
     res = parseFloat(text);
   }
   if(set){
+    if(res.toString() == "NaN"){
+      invalidTimer = setTimeout(() => {
+        clearText()
+      }, 1000)
+    }
     setText(res.toString());
   }else{
     return res;
@@ -295,6 +304,11 @@ function setOperator(input){
   op = input;
 }
 function deleteSpan(){
+  if(invalidTimer){
+    clearTimeout(invalidTimer)
+    clearText()
+    return
+  }
   var spans = $(".text");
   if(spans.length<1 || selectedId<0){return;}
   $("#"+spans[selectedId].id).remove();
