@@ -96,7 +96,9 @@ function setRes(set=true, text){
     text = getText();
     clearText();
   }
-  
+  if(text == ""){
+    return
+  }
   text = brackets(text);
   text = specialOperator(text);
  
