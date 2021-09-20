@@ -1,50 +1,85 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="blog.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-
-</head>
-<body>
-    
-    <div class = "scaff">
-        <div class = "caixa">
-            <div class = "visor"> 
-              <div class="selector"></div>
-              <div id="s-1" class="first"></div>
-            </div>
-            <div class = "celulas"> 
-                <div onclick="operate(&quot;(&quot;)"class="celula"> ( </div>
-                <div onclick="operate(&quot;)&quot;)"class="celula"> ) </div>
-                <div onclick="clearText()" class="celula"> C </div>
-                <div onclick="deleteSpan()" class="celula"> <img src="backspace.png" id = "backspace" alt="<" > </img></div>
-                <div onclick="operate(1)" class="celula"> 1</div>
-                <div onclick="operate(2)" class="celula"> 2 </div>
-                <div onclick="operate(3)" class="celula"> 3 </div>
-                <div onclick="operate(&quot;+&quot;)" class="celula"> + </div>
-                <div onclick="operate(4)" class="celula"> 4 </div>
-                <div onclick="operate(5)" class="celula"> 5 </div>
-                <div onclick="operate(6)" class="celula"> 6 </div>
-                <div onclick="operate(&quot;-&quot;)" class="celula"> - </div>  
-                <div onclick="operate(7)" class="celula"> 7 </div>
-                <div onclick="operate(8)" class="celula"> 8 </div>
-                <div onclick="operate(9)" class="celula"> 9 </div>   
-                <div onclick="operate(&quot;/&quot;)" class="celula"> / </div>
-                <div onclick="operate(&quot;.&quot;)" class="celula"> . </div>
-                <div onclick="operate(0)" class="celula"> 0 </div>
-                <div onclick="setRes()" class="celula"> = </div>
-                <div onclick="operate(&quot;*&quot;)"class="celula"> * </div>
-            </div>
-        </div>
-    </div>
-
-</body>  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src = "main.js"></script>
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Calculator</title> 
+  <link rel="stylesheet" href="main.css"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script> 
+  <script src="main.js" defer></script> 
+ </head> 
+ <body> 
+  <div class="scaff"> 
+   <div class="caixa"> 
+    <div class="visor"> 
+     <div class="selector"></div> 
+    </div> 
+    <div class="celulas"> 
+     <div onclick="operate('(')" class="celula">
+       ( 
+     </div> 
+     <div onclick="operate(')')" class="celula">
+       ) 
+     </div> 
+     <div onclick="clearText()" class="celula">
+       C 
+     </div> 
+     <div onclick="deleteSpan()" class="celula"> 
+      <img src="backspace.png" id="backspace" alt="<"> 
+     </div> 
+     <div onclick="operate(1)" class="celula">
+       1 
+     </div> 
+     <div onclick="operate(2)" class="celula">
+       2 
+     </div> 
+     <div onclick="operate(3)" class="celula">
+       3 
+     </div> 
+     <div onclick="operate('+')" class="celula">
+       + 
+     </div> 
+     <div onclick="operate(4)" class="celula">
+       4 
+     </div> 
+     <div onclick="operate(5)" class="celula">
+       5 
+     </div> 
+     <div onclick="operate(6)" class="celula">
+       6 
+     </div> 
+     <div onclick="operate('-')" class="celula">
+       - 
+     </div> 
+     <div onclick="operate(7)" class="celula">
+       7 
+     </div> 
+     <div onclick="operate(8)" class="celula">
+       8 
+     </div> 
+     <div onclick="operate(9)" class="celula">
+       9 
+     </div> 
+     <div onclick="operate('/')" class="celula">
+       / 
+     </div> 
+     <div onclick="operate('.')" class="celula">
+       . 
+     </div> 
+     <div onclick="operate(0)" class="celula">
+       0 
+     </div> 
+     <div onclick="setRes()" class="celula">
+       = 
+     </div> 
+     <div onclick="operate('*')" class="celula">
+       * 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+ </body>
 </html>
