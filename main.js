@@ -1,5 +1,4 @@
 window.onload = () => {
-  console.log("entered");
   selectSpan($(".first")[0]);
 }
 var vText = $(".visor");
