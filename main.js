@@ -163,10 +163,10 @@ function setRes(set=true, text){
 }
 function specialOperator(text){
   while(text.includes("*") || text.includes("/")){
-    var sOp = "*";
+    var sOp = "/";
     var index = text.indexOf(sOp);
     if(index<0){
-      sOp = "/";
+      sOp = "*";
       index = text.indexOf(sOp);
     }
     var max = 0;
